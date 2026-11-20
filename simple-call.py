@@ -2,9 +2,12 @@ from mistralai.client import Mistral
 import os
 import json
 import time
+from dotenv import load_dotenv
+
 
 # Initialize the Mistral client
-API_KEY = os.environ.get("MISTRAL_API_KEY")
+env = load_dotenv()
+API_KEY = os.getenv("MISTRAL_API_KEY")
 client = Mistral(api_key=API_KEY)
 
 
@@ -27,7 +30,7 @@ def basic_prompt(question, model="mistral-small-latest"):
 
 # Example usage
 
-print("RUNNING THE SCRIPT")
+print(f"RUNNING THE SCRIPT...\nAPI KEY: {API_KEY}")
 
 question = "What are the three laws of thermodynamics? Explain each briefly."
 print(f"\nQuestion: {question}\n")
